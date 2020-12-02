@@ -1,0 +1,13 @@
+.cont {
+
+    background-image: url(./images/cloud3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:700px 
+    /* display: flex; */
+    
+}
+
+.header {
+    text-align:center;
+}

@@ -1,81 +1,73 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
+// import {Link } from 'react-router-dom'
+import './Weatherhome.css'
 
-export default function Whether() {
-    const [weather, setWeather] = useState({})
 
-useEffect(() =>{
+export default function Login() {
+    const [Country,setCountry]=useState('')
+    const [City,setCity]=useState('')
+    const [Current,setCurrent]=useState([])
 
-    axios.get (
-        `http://api.weatherstack.com/current?access_key=59a7b94912785acf73f0b7e890bcc2ab&query=${Country},${City}`        
+    const handleCountryInput = (event) =>{
+    setCountry (event.target.value)
+    }
+    const handleCityInput = (event) =>{
+    setCity (event.target.value)
+
+    }
+  
+    const getweather=(e) =>{
+        e.preventDefault()
+    if (Country && City){
+        axios.get (
+        `http://api.weatherstack.com/current?access_key=2b8379d90400cca5edccb584f65a68c6&query=${Country},${City}`        
         )
-    .then ((res) =>{
+                
+        
+        .then ((res)=>{
+            console.log(res.data);
+            setCurrent(res.data.current)
 
-    })
-})
-
-
-
-
-
-
-
-
-
-
+        })
+        .catch((err) => {
+            console.log(err)
+        },[]);
+    }}
     return (
+       
+
         <div>
+            <form className="auth">
+                {/* <p>I am in {Country} in {City}</p> */}
+                <input type= "text" placeholder="Country"onChange={handleCountryInput}/>
+                <input type= "text" placeholder="City" onChange={handleCityInput}/>
+                <button onClick={getweather}>Search</button>
+            </form>
             
+            {/* <br/>
+            {Current.observation_time}*?
+            <br/>
+        
+            
+             */
+               
+                  Current &&(
+                   <div className="header">
+                    <h3>Time: {Current.observation_time} </h3>
+                    <br/>
+                    {<img src={Current.weather_icons} alt=''/>}
+                    <br/>
+                    <h3> {Current.weather_descriptions} </h3>
+                    <br/>
+                    <h3>Temperature: {Current.temperature} &#176;</h3>
+                    <br/>
+                    <h3>Humidity:{Current.humidity}</h3>
+                    
+                 
+                  </div>
+                   )
+               }
+
         </div>
-    )
-}
-
-
-
-return (
-    <div>
-        <ul>
-            {
-            Login
-            
-            ?
-            <>
-            <Link to = '/'>{""}<li>Home</li></Link>
-            <Link to = '/SignUp'>{""}<li>SignUp</li></Link>
-            <Link to ='/Login'><li>Login</li></Link>
-            </>
-            :
-            <>
-
-            </>
-        
-        
-        }
-
-        </ul>
-
-    </div>
-
-<NavBar bg="grey" variant="dark">
-<NavBar className="container-fluid">
-
-{
-Login
-
-?
-<>
-<Link to = '/'>{""}Home</Link>
-<Link to = '/SignUp'>{""}SignUp</Link>
-<Link to ='/Login'>Login</Link>
-</>
-:
-<>
-
-</>
-
-
-}
-
-
-</NavBar>
-</NavBar>
+    )}

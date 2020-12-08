@@ -1,20 +1,24 @@
 import React,{useEffect, useState} from 'react'
-import axios from 'axios'
+import Axios from 'axios'
 // import './Login.css'
+// import './Home.css'
+import './CurrentState.css'
 
 
 export default function CurrentState() {
      const [Current,setCurrent] = useState({})
 
             useEffect(()=>{
-                axios.get (
-                    `http://api.weatherstack.com/current?access_key=4b40536f3be28bed5972c47ff8337f06&query=Accra`        
+                Axios.get (
+                    `http://api.weatherstack.com/current?access_key=cc7fb9736d323e7196853c5aec87610a&query=Accra`        
                     )
                     .then ((res)=>{
                         console.log(res.data);
                         setCurrent(res.data.current)
                     })
-
+                    .catch((err) => {
+                        console.log(err)
+                    },[]);
             })
      
     return (
@@ -22,7 +26,9 @@ export default function CurrentState() {
     {
                    Current &&(
                    <div className="auth">
+
                     <h2>Accra</h2>
+
                     <h4> Time: {Current.observation_time} </h4>
                     <br/>
                     {<img src={Current.weather_icons} alt=''/>}

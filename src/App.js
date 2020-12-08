@@ -7,6 +7,7 @@ import SignUp from './Components/SignUp';
 import './App.css'
 // import Weather from "./Components/Weather"
 import WeatherHome from "./Components/WeatherHome";
+import UserLocation from "./Components/UserLocation";
 
 export default function App() {
   return (
@@ -15,10 +16,12 @@ export default function App() {
     
   
     <Switch>
-      <Route exact path='/' component={Home} />
+      <Route exact path='/' component={UserLocation} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
       <Route path='/weather' component={WeatherHome} />
+      {/* <Route path='/weather' component={WeatherHome} /> */}
+
 
         
         </Switch>

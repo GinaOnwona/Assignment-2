@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-// import CurrentState from './CurrentState';
 import Weather from './Weather';
 import './Home.css'
-import CurrentState from './CurrentState';
+// import CurrentState from './CurrentState';
 import History from '../Components/History';
+import UserLocation from './UserLocation';
 // import './Login.css'
 
 
@@ -16,8 +16,7 @@ export default function Home() {
     return (
         <div className="cont">
 
-            <h1 className="header">iWeather</h1>
-             <CurrentState/>  
+             <UserLocation/>  
              {/* <Weather/>  */}
              {/* {
                  history.map(item=> <History history={history}/>)

@@ -72,19 +72,20 @@ export default function Login() {
                     weatherData.weather[0].description :  null }</h3>
                     </div>
                     <br/> */}
+                <div className="col-md-6 weather-info"></div>
                 <div> 
                 <h3>Icon: {weatherData ? weatherData.weather.icon :""}</h3>
                 </div>
                 <br/>
                 <br/>
-                <div className="col-md-3 weather-info">
+                <div className="col-md-6 weather-info">
                 <h3>Temperature:{weatherData ? weatherData.main.temp :""}&#176;</h3>
                 </div>
-                <br/>
+            
                 <div className="col-md-3 weather-info">
                <h3>Humidity: {weatherData ? weatherData.main.humidity :""}</h3>
                 </div>
-                <br/>
+        
                 <div className="col-md-3 weather-info">
                 <h3>Pressure:{weatherData ? weatherData.main.pressure :""}</h3>
                 </div>

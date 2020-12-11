@@ -11,6 +11,9 @@ import UserLocation from "./Components/UserLocation";
 
 export default function App() {
   return (
+<div>
+    <h1 className="header"> WELCOME TO iWEATHER</h1>
+
     <BrowserRouter>
     <NavBar/>
     
@@ -28,7 +31,7 @@ export default function App() {
         
     </BrowserRouter>
 
-    
+    </div>
 
   )
 }

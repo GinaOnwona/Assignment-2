@@ -46,17 +46,14 @@ export default function UserLocation() {
             <div className="user-weather">
                     <div className="row">
            <div className="header">
-            <h2>iWeather</h2>
+            {/* <h1 className="header"> Welcome to iWeather</h1> */}
             </div>
             <div className="auth">
-            <div className="col-md-3 weather-info">
-           
-           <h3>Description: {weatherData.weather ? weatherData.weather[0].description :""}</h3>
-            </div>
-            <br/>
-            <div className="col-md-3 weather-info">
-           <h3> Weather Icon: {weatherData.weather ? weatherData.weather.icon :""}</h3>
-            </div>
+            {/* <div className="col-md-3 weather-info">
+            */}
+           {/* <h3>Description: {weatherData.weather ? weatherData.weather[0].description :""}</h3>
+            </div> */}
+            
             <br/>
             <div className="col-md-3 weather-info">
             <h3>Temperature:{weatherData.main ? weatherData.main.temp :""}&#176;</h3>
@@ -71,7 +68,11 @@ export default function UserLocation() {
             </div>
             <br/>
             <div className="col-md-3 weather-info">
-           <h3>Location: {weatherData.name ? weatherData.name.name :""}</h3>
+           <h3> Weather Icon: {weatherData.weather ? weatherData.weather.icon :""}</h3>
+            </div>
+            <br/>
+            <div className="col-md-3 weather-info">
+           <h3>Location: {weatherData.main ? weatherData.main.name :""}</h3>
             </div>
             {/* <div className="col-md-3 weather-info">
             <h3>Wind Speed:{weatherData.wind ? weatherData.wind.speed :""}</h3>

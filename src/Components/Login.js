@@ -3,7 +3,8 @@ import Home from './Home'
 import {Link } from 'react-router-dom'
 import './Login.css'
 import Weather from './Weather'
-import CurrentState from './CurrentState'
+// import CurrentState from './CurrentState'
+import UserLocation from './UserLocation'
 
 
 
@@ -47,6 +48,7 @@ export default function Login() {
             
             <Home/>
             <Weather/>
+            {/* <UserLocation/> */}
         
             {/* <button */}
                  {/* onClick={handleLogout}>Logout */}
